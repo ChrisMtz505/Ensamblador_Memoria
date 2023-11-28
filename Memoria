@@ -1,0 +1,622 @@
+int a =2;
+int b =3;
+int c =4;
+int d =5;
+int e =6;
+int f =7;
+int g =8;
+int a1 =9;
+int b1 =10;
+int c1 =11;
+int d1 =12;
+int e1 =13;
+int f1 =0;
+int g1 =1;
+int ele;
+int A ;
+int Ab;
+int B ;
+int C ;
+int D ;
+int co=0;
+int cont;
+int memoria[3];
+String msg1 = "seleccione lo que quiere realizar \n Suma 1 -resta 2 -multiplicasion 3 -divicion 4 -and 5 -xor 6 -or 7 -salir 8";
+String msg2 = "\nDame los valores";
+String msg3 = "\nDame el valores 1";
+String msg4 = "\nDame el valores 2";
+String msg5 = "\nDame el valores 3";
+String msg6 = "\nDame el valores 4";
+String Fin= "fin";
+String m= "memoria llena, se mostrara los numeros y se limpiara la memoria";
+String lo= "Quieres usar el ultimo dato guardado de la operacion  \n Si 1 -No 2  ";
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(a,OUTPUT);
+  pinMode(b,OUTPUT);
+  pinMode(c,OUTPUT);
+  pinMode(d,OUTPUT);
+  pinMode(e,OUTPUT);
+  pinMode(f,OUTPUT);
+  pinMode(g,OUTPUT);
+  pinMode(a1,OUTPUT);
+  pinMode(b1,OUTPUT);
+  pinMode(c1,OUTPUT);
+  pinMode(d1,OUTPUT);
+  pinMode(e1,OUTPUT);
+  Serial.begin(9600);
+  
+}
+void loop(){
+  do{
+    Serial.print(msg1);
+    ele = Serial.parseInt();
+    if (ele ==1){
+      suma();
+    }
+    if (ele ==2){
+      resta();
+    }
+    if (ele ==3){
+      multiplicasion();
+    }
+    if (ele ==4){
+      divicion();
+    }
+    if (ele ==5){
+      andd();
+    }
+    if (ele ==6){
+      orr();
+    }
+    if (ele ==7){
+      xorr();
+    }
+    while (co>=3){
+      if (cont==0){
+        memoria[co]=cont;
+      }
+      if (cont==1){
+        memoria[co]=cont;
+      }
+      if (cont==2){
+        memoria[co]=cont;
+      }
+      if (cont==3){
+        memoria[co]=cont;
+      }
+      if (cont==4){
+        memoria[co]=cont;
+      }
+      if (cont==5){
+        memoria[co]=cont;
+      }
+      if (cont==6){
+        memoria[co]=cont;
+      }
+      if (cont==7){
+        memoria[co]=cont;
+      }
+      if (cont==8){
+        memoria[co]=cont;
+      }
+      if (cont==9){
+        memoria[co]=cont;
+      }
+      co=+1;
+      cont="";
+      }
+      if(co>=3){
+        Serial.print(m);
+        Serial.print(memoria[0] + memoria[1] + memoria[2] + memoria[3]);
+        co="";
+      }
+  }while(ele==8); 
+}
+void suma() {
+  // put your main code here, to run repeatedly:
+  //VARIABLES
+    //·-----SUMA-----
+  if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if ((A && B && D) || (A && B && C) || (C && D)) {
+      uno();  //ACARREO
+    } else {
+      cero();//ACARREO
+    }
+  if ((A && B && !C && !D) || (A && B && C && D) || (!A && !C && D) || (!B && !C && D) || (!A && C && !D) || (!B && C && !D)) {
+      dos();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if ((!A&&B) || (A&&!B)) {
+      tres();  //PRIMER BIT
+    } else {
+      cero();  //PRIMER BIT
+    }
+  
+}
+void resta() {
+  
+    // -----RESTA-----
+ if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if ((!C && D) || (!A && B)) {
+      uno();  //SIGNO
+    } else {
+      cero();  //SIGNO
+    }
+  if ((!C && D) || (C && !D)) {
+      dos();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if ((!A && B) || (A && !B)) {
+      tres();  //TERCER BIT
+    } else {
+      cero();  //TERCER BIT
+    }
+  
+}
+void multiplicasion() {
+  
+    // -----MULTIPLICACION-----
+  if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if (D && C && B && A) {
+      uno();  //CUARTO BIT
+    } else {
+      cero();  //CUERTO BIT
+    }
+  if ((!A && C && D) || (!B && C && D)) {
+      tres();  //TECER BIT
+    } else {
+      dos();  //TERCER BIT
+    }
+  if ((!A && B && C) || (B && C && !D) || (A && !B && D) || (A && !C && D)) {
+      cuatro();  //SEGUNDO BIT
+    } else {
+      seis();  //SEGUNDO BIT
+    }
+  if (A && B) {
+      nueve();  //PRIMER BIT
+    } else {
+      cero();  //PRIMER BIT
+    }
+}
+void divicion() {
+  
+    // -----DIVISION-----
+  if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if (!A && !B && !C && !D) {
+      uno();  //ERROR
+    } else {
+      cero();  //ERROR
+    }
+
+  if ((!B && C && !D) || (A && !B && !D)) {
+      dos();  //INFINITO
+    } else {
+      cero();  //INFINITO
+    }
+
+  if (B && C && !D) {
+      tres();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if (!A && B && C && D) {
+      dos();  //RESIDUO 2
+    } else {
+      cero();  //RESIDUO 2
+    }
+
+  if ((A && !B && D) || (A && !C && D)) {
+      uno();  //RESIDUO 1
+    } else {
+      cero();  //RESIDUO 1
+    }
+  
+}
+void andd() {
+  
+    // -----AND-----
+ if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if (C && D) {
+      uno();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if (A && B) {
+      dos();  //PRIMER BIT
+    } else {
+      cero();  //PRIMER BIT
+    }
+  
+}
+void orr() {
+  
+    // -----OR-----
+   if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if (D || C) {
+      uno();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if (A || B) {
+      dos();  //PRIMER BIT
+    } else {
+      cero();  //PRIMER BIT
+    }
+
+}
+void xorr() {
+  
+    // -----XOR-----
+ if(co>=0){
+    Serial.print(lo);
+    Ab = Serial.parseInt();
+    if(Ab==1){
+      A= memoria[co];
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+    }
+    if (Ab==2){
+      Serial.print(msg2);
+      A = Serial.parseInt();
+      Serial.print(msg3);
+      B = Serial.parseInt();
+      Serial.print(msg4);
+      C = Serial.parseInt();
+      Serial.print(msg5);
+      D = Serial.parseInt();
+      Serial.print(msg6);
+
+    }
+  }
+  if ((!C && D) || (C && !D)) {
+      uno();  //SEGUNDO BIT
+    } else {
+      cero();  //SEGUNDO BIT
+    }
+  if ((!A && B) || (A && !B)) {
+      dos();  //PRIMER BIT
+    } else {
+      cero();  //PRIMER BIT
+    }
+  
+}
+
+void cero() {
+  ////cero
+  digitalWrite(a, LOW);
+  digitalWrite(b, LOW);
+  digitalWrite(c, LOW);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  cont=0;
+}
+void uno() {
+  ////uno
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  cont=1;
+
+}
+void dos() {
+  ////dos
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, LOW);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  cont=2;
+
+}
+void tres() {
+  ////tres
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  cont=3;
+
+
+}
+void cuatro() {
+  ////cuatro
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, LOW);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  cont=4;
+}
+void cinco() {
+  ////cinco
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, LOW);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  cont=5;
+
+}
+void seis() {
+  ////seis
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, LOW);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  cont=6;
+}
+void siete() {
+  ///siete
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, LOW);
+  digitalWrite(g, HIGH);
+  cont=7;
+
+}
+void ocho() {
+  ////ocho
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, HIGH);
+  digitalWrite(e, HIGH);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  cont=8;
+}
+void nueve() {
+  ////nueve
+  digitalWrite(a1, LOW);
+  digitalWrite(b1, LOW);
+  digitalWrite(c1, LOW);
+  digitalWrite(d1, LOW);
+  digitalWrite(e1, LOW);
+  digitalWrite(f1, LOW);
+  digitalWrite(g1, HIGH);
+  digitalWrite(a, HIGH);
+  digitalWrite(b, HIGH);
+  digitalWrite(c, HIGH);
+  digitalWrite(d, LOW);
+  digitalWrite(e, LOW);
+  digitalWrite(f, HIGH);
+  digitalWrite(g, HIGH);
+  cont=9;
+
+}
+
